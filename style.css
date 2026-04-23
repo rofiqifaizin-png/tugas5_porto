@@ -1,0 +1,291 @@
+/* Custom Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+h1, .section-title {
+    font-family: 'Playfair Display', serif;
+}
+/* Keadaan Awal (Transparan) */
+.transition-navbar {
+    background-color: transparent;
+    transition: all 0.4s ease-in-out; /* Animasi perubahan warna */
+    padding: 20px 0; /* Navbar lebih lebar saat di atas */
+}
+
+/* Keadaan Saat Di-scroll (Solid/Berwarna) */
+.transition-navbar.scrolled {
+    background-color: #ffffff; /* Warna putih */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Tambah shadow saat scroll */
+    padding: 10px 0; /* Navbar mengecil sedikit saat scroll */
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+/* Opsional: Ubah warna teks jika background putih */
+.transition-navbar.scrolled .nav-link {
+    color: #333;
+}
+.nav-link {
+    transition: all 0.6s ease-in-out;
+}
+.nav-link:hover {
+    border-radius: 10px;
+    background-color: #146c43; /* Warna berubah perlahan dalam 0.3 detik */
+    transform: translateY(-3px); /* Mengangkat tombol sedikit */
+    color: white;
+
+}
+
+@keyframes pulseBtn {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(141, 181, 75, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(141, 181, 75, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(141, 181, 75, 0); }
+}
+/* Hero Section */
+.hero-section {
+    height: 90vh;
+    background: linear-gradient(to left, rgba(0, 30, 255, 0) 0%, #fcfcfc 100%), url('Télécharger\ Célibataire\ blanc\ fleur\ épanouissement\ dans\ une\ champ\ de\ fleurs\ à\ le\ coucher\ du\ soleil\ gratuitement.jpg');
+    background-repeat: no-repeat; /* Jangan mengulang */
+    background-size: cover;       /* Gambar akan dipaksa memenuhi area hero */
+    background-position: center;  /* Gambar tetap di tengah */
+}
+.h1 .span {
+    color: #ffffff;
+}
+.section-title {
+    font-size: 4rem;
+    color: #e9ecef;
+    letter-spacing: 10px;
+    font-weight: bold;
+    position: relative;
+}
+/* Animasi Fade In untuk Teks */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-text {
+    animation: fadeInUp 2s ease-out;
+}
+
+
+/* Animasi Floating (Melayang) */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-anim {
+    animation: float 4s ease-in-out infinite;
+    border: 15px solid white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+#contact {
+    background-color: #E5D3B3;
+}
+/* Service Card Hover Effect */
+.service-card {
+    background: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: #198754;
+}
+/* Menambahkan efek kilau saat di-hover */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.service-card:hover::after {
+    left: 100%;
+    opacity: 1;
+}
+/* --- UPGRADE ANIMASI --- */
+
+/* Animasi Putar Icon saat Hover */
+.service-card:hover i {
+    animation: rotateIcon 0.8s ease-in-out;
+}
+
+@keyframes rotateIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+/* Custom Button */
+.btn-success {
+    background-color: #8db54b; /* Hijau sesuai desain */
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #7a9d3f;
+}
+/* --- KREASI TAMBAHAN: BLOB BACKGROUND --- */
+.blob-bg {
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(141, 181, 75, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -2;
+    animation: moveBlob 20s infinite alternate;
+}
+
+@keyframes moveBlob {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-200px, 200px) scale(1.2); }
+}
+
+/* --- STORY BOX GRADIENT --- */
+.story-box {
+    background: linear-gradient(135deg, #8db54b 0%, #5d7a2e 100%);
+    position: relative;
+    z-index: 2;
+}
+
+.story-img {
+    border: 20px solid rgba(141, 181, 75, 0.1);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.story-img:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-weight: bold;
+    animation: floatBadge 3s infinite ease-in-out;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* --- WHATSAPP FLOAT --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: white;
+    background: #128c7e;
+}
+
+/* --- HOVER EFFECT FOR ALL CARDS --- */
+.service-card, .product-card {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+/* Animasi Pulse pada Tombol */
+.btn-success {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.btn-success:hover {
+    animation: pulseBtn 1.5s infinite;
+}
+
+
+/* Upgrade Card Product */
+.product-card {
+    border: 1px solid transparent;
+    padding: 15px;
+    border-radius: 20px;
+    transition: 0.4s;
+    background: #fff;
+}
+
+.product-card:hover {
+    border-color: #8db54b;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.product-card img {
+    transition: 0.5s;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Glassmorphism Effect untuk Navbar saat Scroll */
+.navbar.shadow-sm {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(10px);
+}
+
+
+summary {
+    list-style: none; /* Menghilangkan panah default */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+summary::after {
+    content: '+'; /* Mengganti panah dengan simbol plus */
+    font-size: 1.5rem;
+    color: #8db54b;
+}
+details[open] summary::after {
+    content: '-'; /* Berubah jadi minus saat terbuka */
+}
